@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --bg-color: red;
+        }
+        div{
+            width: calc(50% - 2px);
+            /* url/blur/invert/linear/gradient/ */
+            height: 100px;
+            background-color: var(--bg-color);
+            /* transition: width 2s 1s ease; */
+            color: var(--text-color);
+        }
+        ul{
+            --text-color:blue;
+        }
+        li{
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        bye
+    </div>
+    <ul>
+        <li>hello</li>
+    </ul>
+</body>
+</html>

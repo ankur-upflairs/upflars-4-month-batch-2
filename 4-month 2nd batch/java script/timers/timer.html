@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .slider {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .slides {
+            width: 100%;
+            height: 100%;
+            /* transition: all 1s linear; */
+        }
+    </style>
+</head>
+
+<body>
+    <button>stop</button>
+    <!-- <div class="box"></div> -->
+    <!-- <img src="download1.jfif" alt=""> -->
+    <div class="slider">
+        <img src="download1.jfif" alt="" class="slides">
+        <img src="download2.jfif" alt="" class="slides">
+        <img src="download3.jfif" alt="" class="slides">
+        <img src="download4.jfif" alt="" class="slides">
+    </div>
+    <script>
+        // let timerId=setTimeout(function(){
+        //     console.log("hello");
+        // },3000)
+
+        // document.querySelector("button").addEventListener("click",function(){
+        //     clearTimeout(timerId)
+        // })
+        // clearTimeout(timerId)
+        // let count=0
+        // setInterval(function(){
+        //     console.log(count++);
+        // },1000)
+        let box = document.querySelector(".box")
+        // let count=0
+        // let timerId=setInterval(function(){
+        //     box.style.transform=`rotate(${count++}deg)`
+        // },10)
+
+        // document.querySelector("button").addEventListener("click",function(){
+        //     clearInterval(timerId)
+        // })
+        // let colors=["red","green","blue","yellow"]
+        // let count=0
+        // let timerId=setInterval(function(){
+        //     box.style.backgroundColor=colors[count++]
+        //     if(count==colors.length){
+        //         count=0
+        //     }
+        // },1000)
+        // let images= ["download1.jfif","download2.jfif","download3.jfif","download4.jfif"]
+        let img = document.querySelector("img")
+        // let count=0
+        // setInterval(function(){
+        //     img.src=images[count++]
+        //     if(count==images.length){
+        //         count=0
+        //     }
+        // },1000)
+        //    let x=1
+        //    let timerId=setInterval(function(){  
+        //     img.src=`download${x++}.jfif`
+        //     if(x==5){
+        //         x=1
+        //     }
+        //    },1000)
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slides');
+        const slider = document.querySelector('.slider');
+        const totalSlides = slides.length;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slides.forEach(el=>el.style.transform = `translateX(-${currentIndex * 100}%)`)
+        }, 1000);
+        //comments jsonplaceholder
+        //dummyjson =>product
+        //calculator
+                
+    </script>
+</body>
+
+</html>

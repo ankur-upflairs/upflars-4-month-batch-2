@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onclick="changeColor()" onmouseenter="changeText()" onmouseleave="reverseText()" >click here</button> -->
+    <button >click here</button>
+
+    <p>this is paragraph</p>
+    <script>
+        let btn=document.querySelector('button')
+        let p=document.querySelector('p')
+        btn.addEventListener('click',changeColor)
+        btn.addEventListener('mouseenter',changeText)
+        btn.addEventListener('mouseleave',reverseText)        
+        function changeColor(){
+            btn.style.backgroundColor='red'
+        }
+        function changeText(){
+            p.innerText='new text'
+        }
+        function reverseText(){p.innerText='this is paragraph'}
+    </script>
+</body>
+</html>

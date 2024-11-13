@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="show()">click</button>
+    <button id="btn">move mouse here</button>
+    <script>
+        // events are actions performed by user or browser
+        // 1. click
+        // 2. mouseover
+        // 3. mouseout
+        // 4. mousemove
+        // 5. mouseenter
+        // 6. mouseleave
+        // 7. keydown
+        // 8. keyup
+        // function show(){
+        //     alert('hello everyone!!!!')
+        // }
+        let btn=document.getElementById('btn')
+        btn.addEventListener('mouseenter',function(){
+            btn.innerText='remove mouse'
+        })
+        btn.addEventListener('mouseleave',function(){
+            btn.style.backgroundColor='green'
+            btn.style.color='white'
+        })
+        
+    </script>
+</body>
+</html>

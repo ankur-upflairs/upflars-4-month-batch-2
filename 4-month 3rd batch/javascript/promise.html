@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //promises are way to deal with asynchronous code or programming
+      //async fn return promise
+      // let res=fetch('https://jsonplaceholder.typicode.com/posts')
+      // console.log(res)
+      //fulfill => then
+      //reject => catch
+      //pending
+      // fetch('https://jsonplaceholder.typicode.com/posts')
+      // .then((res)=>console.log(res))
+      // .catch(err=>console.log(err))
+      // fetch('https://jsonplaceholder.typicode.com/posts')
+      // .then((res)=>res.json())
+      // .then(data=> console.log(data))
+      // .catch(err=>console.log(err))
+      // async await
+      async function getData() {
+        let res = await fetch("https://jsonplaceholder.typicode.com/posts");
+        let data = await res.json();
+        console.log(data);
+        let box = document.createElement("ol");
+        data.forEach((el) => {
+          let li = document.createElement("li");
+          li.innerHTML = el.title;
+          box.append(li);
+        });
+        document.body.prepend(box)
+      }
+      getData();
+    </script>
+  </body>
+</html>

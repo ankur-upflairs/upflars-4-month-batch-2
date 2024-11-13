@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="xyz()">stop</button>
+    <script>
+    //    let id= setInterval(()=>console.log('hello'),1000)
+    //     function xyz(){
+    //         clearInterval(id)
+    //     }
+    // time out
+    let timerId=  setTimeout(()=>{
+        console.log('hello');
+    },5000)
+        function xyz(){
+            clearTimeout(timerId)
+        }
+    </script>
+</body>
+</html>

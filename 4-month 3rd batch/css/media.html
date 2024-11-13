@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media screen and (min-width: 500px) and (max-width: 900px) {
+            
+        }
+        .box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .i {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            flex-grow: 1;
+        }
+        ul{display: none;}
+        @media screen and (max-width: 900px) {
+            .box{
+                flex-wrap: wrap;
+                
+            }
+            .i{
+                flex-grow: 0;
+                width: calc(50% - 2px) ;
+            }
+        }
+        @media screen and (max-width: 500px) {     
+            .i{
+                width: 100%;
+            }
+            .box{
+                display: none;
+            }
+            ul{
+                display: block;
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="box">
+        <div class="i"></div>
+        <div class="i"></div>
+        <div class="i"></div>
+        <div class="i"></div>
+    </div>
+    <ul>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        
+    </ul>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .d{
+            background-color: green;
+        }
+        .c{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="a">hello</p>
+    <p class="b">kjdfks</p>
+    <h1 class="b">heading</h1>
+    <button class="a b c">click here</button>
+    <script>
+        //acesss the element
+    let p = document.getElementById('a')
+    //    console.log(p)
+    let a=document.getElementsByClassName('b')
+    //collection
+    // console.log(a)
+    let b=document.getElementsByTagName('p')
+    //collection
+    // console.log(b)
+    let c=document.querySelector('#a')
+    // console.log(c)
+    let d=document.querySelectorAll('.b')
+    // console.log(d)
+    // console.log(p.innerText)
+    // p.innerText='bye'
+    // c.innerHTML='<b>hello everyone</b>'
+    // p.style.color='red'
+    // p.style.backgroundColor='tan'
+    // console.log(c.getAttribute('id'))
+    // c.setAttribute('align','center')
+    // c.removeAttribute('align')
+    let e=document.querySelector('button')
+    console.log(e.classList)
+    e.classList.add('d')
+    e.classList.remove('c')
+    e.classList.toggle('c')
+    e.classList.toggle('c')
+    </script>
+</body>
+</html>

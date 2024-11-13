@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{background-color: red;}
+    </style>
+</head>
+<body>
+    <button>moveup</button>
+    <button id="dl">delete first</button>
+    <script>
+       let h1=document.createElement('h1')
+        h1.innerText='heading'
+        h1.className='b'
+        document.body.append(h1)
+        let arr=['sunil','pankaj','nikhil','gagan']
+        let ul=document.createElement('ul')
+        document.body.prepend(ul)
+        for(let i of arr){
+            let li=document.createElement('li')
+            li.innerText=i
+            ul.append(li)
+        }
+        let li=document.createElement('li')
+        li.innerText='new list item'
+        li.className='a'
+        let btn=document.querySelector('button')
+        btn.addEventListener('click',function(){
+            // document.body.prepend(h1)
+            ul.insertAdjacentElement('afterBegin',li)
+        })
+        // ul.children.forEach(element => {
+        //     element.addEventListener('click',()=>console.log('hello'));
+        // })
+        for(let el of ul.children){
+            el.addEventListener('click',()=>console.log('hello'));
+        }
+        let dl=document.querySelector('#dl')
+        let hc=document.getElementsByTagName('li')
+        let nl=document.querySelectorAll('li')
+        dl.addEventListener('click',function () {
+            ul.firstElementChild.remove()
+            console.log(hc,nl)
+            
+        })
+    </script>
+</body>
+</html>

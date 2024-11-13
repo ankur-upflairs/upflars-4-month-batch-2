@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{width: 100px;height: 100px;border: 1px solid;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button >stop</button>
+    <button>start</button>
+    <script>
+        // setInterval => call a fn after a certain interval(time period)
+        // let i=1;
+        // setInterval(function(){document.write(i,'<br>');i++},1000)
+        let box=document.querySelector('.box')
+        // function changeColor(){
+        //     if(box.style.backgroundColor=='red'){
+        //         box.style.backgroundColor='yellow'
+        //     }else{
+        //         box.style.backgroundColor='red'
+        //     }
+        //     // console.log(box.style.backgroundColor)
+        // }
+        // setInterval(changeColor,100)
+        let btn=document.querySelector('button')
+        let btnStart=document.querySelectorAll('button')[1]
+
+        let deg=0
+        function rotate(){
+            box.style.transform=`rotate(${deg}deg)`
+            deg++;
+        }
+        //setinterval always returns an Id 
+        let interval=setInterval(rotate,1)
+        btn.addEventListener('click',function(){
+            // alert('button clicked')
+            clearInterval(interval)
+            interval=null
+        })
+        btnStart.addEventListener('click',function(){
+            if(!interval)  interval=setInterval(rotate,1)
+        })
+    </script>
+</body>
+</html>

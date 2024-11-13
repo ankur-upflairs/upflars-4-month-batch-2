@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person={
+            name:"mohit",
+            age:23,
+            gender:"male",
+            marks:[12,13,14],
+            details:{
+                mob:123
+            },
+            totalMarks:function(){
+                let sum=0;
+                for(let i of this.marks){
+                    sum+=i
+                }
+                return sum
+            }
+        }
+        console.log(person.name)
+        console.log(person.totalMarks())
+        console.log(person['marks'])
+        console.log(person['totalMarks']())
+    </script>
+</body>
+</html>

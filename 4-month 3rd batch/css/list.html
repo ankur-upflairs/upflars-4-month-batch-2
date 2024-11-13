@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: square;
+            border: 1px solid;
+            /* list-style-position: inside; */
+            list-style-image: url(arrow.png);
+        }
+        ol{
+            list-style-type: decimal;
+        }
+        li{
+            border: 1px solid red;
+        }
+        ul::before{
+            content: "hello";
+            color: red;
+            text-align: center;
+        }
+        ul::after{
+            content:"bye";
+        }        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ul>
+    <ol>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+        <li>hello</li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Animal{
+            constructor(name){
+                this.name=name;
+            }
+            show(){
+                console.log(`I am ${this.name}`);
+            }
+        }
+        let cat=new Animal('softy');
+        console.log(cat.name);
+        cat.show()
+        class Dog extends Animal{
+            #legs=4//private to that class 
+            constructor(name,breed){
+                super(name)
+                this.breed=breed
+            }
+            show(){
+                console.log(`Hello my name is ${this.name} and my breed is ${this.breed}`)
+            }
+        }
+
+        // let tommy=new Dog('tommy')
+        // console.log(tommy.name)
+        // tommy.show()
+        let shera=new Dog('shera','Husky')
+        shera.show()
+
+    </script>
+</body>
+</html>

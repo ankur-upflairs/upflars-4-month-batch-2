@@ -4,15 +4,22 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from  './components/Header.jsx'
 import Content,{Footer,x } from './components/Content.jsx'
+import Blog from './components/Blog.jsx'
+import Blogs from './components/Blogs.jsx'
+
+
 function App() {
  
 
   return (
     <>
-    <Header></Header>
+    {/* <Header></Header>
     <Content/>
     <Footer/>
-    {x}
+    {x} */}
+    {/* <Blog title="hello" body="good morning" />
+    <Blog title="pollution" body="air pollution" /> */}
+    <Blogs/>
     </>
   )
 }

@@ -1,0 +1,11 @@
+:root{
+    --bg-main: #1976d2;
+    --txt-main: #fff;
+}
+
+.bg-main{
+    background-color: var(--bg-main);
+}
+.txt-main{
+    color: var(--txt-main);
+}

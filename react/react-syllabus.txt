@@ -1,7 +1,16 @@
 introduction
 folder structure
-jsx 
+jsx
 components
 styling
 fragments
 props
+conditional rendering
+hooks
+useState
+useEffect
+useContext
+useReducer
+useRef
+memo
+useMemo

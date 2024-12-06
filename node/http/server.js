@@ -1,22 +1,25 @@
 const http=require('node:http');
 const fs= require('node:fs');
 const path=require('node:path');
+const { serveStaticFiles } = require('./utils/StaticFileServing');
+
 
 let dir= __dirname
 
 let indexHtml= fs.readFileSync(path.join(dir,'/views/index.html'),'utf-8')
 
-
-
 let requestListner = (req,res)=>{
     // console.log(req.url,req.method,req.headers);
+    let filesend= serveStaticFiles(req,res,dir+'/static')
+    if(filesend) return
+      
     if(req.url==='/'){    
         res.setHeader('Content-Type','text/html')
         res.write(indexHtml) 
         res.end()
-
     }
-    else if(req.url == '/blogs'){
+    else 
+    if(req.url == '/blogs'){
         res.setHeader('Content-Type','application/json')
         res.end(JSON.stringify(blog))
         // res.end('welcome to our blog page')

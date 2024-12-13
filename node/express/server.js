@@ -2,12 +2,14 @@ const express=require('express');
 const app=express();
 const blogRouter=require('./routes/blog');
 const userRouter=require('./routes/user');
-var morgan = require('morgan')
+var morgan = require('morgan');
+const {dbConnect} = require('./config/db');
 
 // app.use('/',(req,res,next)=>{
 //     console.log(req.method,req.path);
 //     next();
 // })
+dbConnect()
 app.use(morgan('tiny'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -17,7 +19,6 @@ app.use('/users',userRouter);
 app.get('/',(req,res)=>{
     res.send('Hello World');
  });
-
 
 app.listen(3000,'localhost', () => {
         console.log('Server is running on port 3000');

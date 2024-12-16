@@ -4,12 +4,20 @@ const blogRouter=require('./routes/blog');
 const userRouter=require('./routes/user');
 var morgan = require('morgan');
 const {dbConnect} = require('./config/db');
+const cors=require('cors');
+
 
 // app.use('/',(req,res,next)=>{
 //     console.log(req.method,req.path);
 //     next();
 // })
 dbConnect()
+// app.use(cors({
+//         origin: '*',
+//         // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//         // allowedHeaders: ['Content-Type', 'Authorization']
+// }))
+app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

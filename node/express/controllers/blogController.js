@@ -4,13 +4,20 @@ exports.getAllBlogs=async (req,res)=>{
     const blogs = await Blog.find();
     res.json(blogs);
 }
-
+exports.getBlog=async (req,res)=>{
+    let id = req.params.id;
+    const blog = await Blog.findById(id);
+    res.json(blog); 
+}
 exports.createBlog= async (req,res)=>{
     // console.log(req.body)   
-    const {title} = req.body;
+    const {title,description,image} = req.body;
     // console.log(title)
-    let blog = new Blog()
-    blog.title = title
+    let blog = new Blog({title,description,image})    
+    // let blog = new Blog()
+    // blog.title = title
+    // blog.description = description
+    // blog.image = image
     const newBlog = await blog.save();
     res.json(newBlog)
  }

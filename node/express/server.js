@@ -5,8 +5,8 @@ const userRouter=require('./routes/user');
 var morgan = require('morgan');
 const {dbConnect} = require('./config/db');
 const cors=require('cors');
-
-
+require('dotenv').config();
+// console.log(process.env)
 // app.use('/',(req,res,next)=>{
 //     console.log(req.method,req.path);
 //     next();
@@ -21,6 +21,7 @@ app.use(cors())
 app.use(morgan('tiny'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use('/uploads',express.static('uploads'));
 app.use('/blogs',blogRouter);
 app.use('/users',userRouter);
 

@@ -1,39 +1,64 @@
 const Blog = require('../models/blog');
 
 exports.getAllBlogs=async (req,res)=>{
+    try {
     const blogs = await Blog.find();
-    res.json(blogs);
+    res.status(200).json({status:'success',data:blogs})   
+
+} catch (error) {
+    console.log(error)
+    res.json({status:'failed',message:error.message})        
+}
 }
 exports.getBlog=async (req,res)=>{
     let id = req.params.id;
+    try {
     const blog = await Blog.findById(id);
-    res.json(blog); 
+    res.status(200).json({status:'success',data:blog})   
+
+} catch (error) {
+    console.log(error)
+    res.json({status:'failed',message:error.message})        
 }
-exports.createBlog= async (req,res)=>{
-    // console.log(req.body)   
-    const {title,description,image} = req.body;
-    // console.log(title)
-    let blog = new Blog({title,description,image})    
-    // let blog = new Blog()
-    // blog.title = title
-    // blog.description = description
-    // blog.image = image
-    const newBlog = await blog.save();
-    res.json(newBlog)
+}
+exports.createBlog= async (req,res)=>{     
+    console.log(req.body,req.file)
+        const {title,description} = req.body; 
+
+    try {
+        let image = req.file.filename
+        let blog = new Blog({title,description,image})    
+        const newBlog = await blog.save();
+        res.status(200).json({status:'success',data:newBlog})   
+    } catch (error) {
+        console.log(error)
+        res.json({status:'failed',message:error.message})        
+    }
  }
 
  exports.updateBlog= async (req,res)=>{
     let id = req.params.id;
    title = req.body.title
+   try {
    const blog = await Blog.findByIdAndUpdate(id,{title})
-   res.json(blog)
+   res.status(200).json({status:'success',data:blog})  
+
+} catch (error) {
+    console.log(error)
+    res.json({status:'failed',message:error.message})        
+}
 
 }
 
 exports.deleteBlog= async (req,res)=>{
     let id = req.params.id;
-   await Blog.findByIdAndDelete(id) 
-    res.send('blog deleted')
+    try {
+   await Blog.findByIdAndDelete(id)
+   res.status(200).json({status:'success',message:'blog deleted'})   
+} catch (error) {
+    console.log(error)
+    res.json({status:'failed',message:error.message})        
+}
 }
 
 

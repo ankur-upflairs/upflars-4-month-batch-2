@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 exports.dbConnect = () => {
   mongoose
     .connect(
-      "mongodb+srv://chirag:chirag123@cluster0.mk94png.mongodb.net/chirag"
+      process.env.MONGODB_URL
     )
     .then(() => {
       console.log("Connected to MongoDB");

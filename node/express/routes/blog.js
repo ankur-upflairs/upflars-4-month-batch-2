@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const {getAllBlogs, createBlog, updateBlog, deleteBlog , getBlog} = require('../controllers/blogController')
-const multer = require('multer')
+const multer = require('multer');
+const { auth } = require('../middleware/auth');
 // const upload = multer({dest:'uploads/'});
 
 const storage = multer.diskStorage({
@@ -15,7 +16,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage ,limits:{fileSize:1024*1024*5}}) 
 
 router.get('/',getAllBlogs)
-router.post('/',upload.single('image'),createBlog)
+router.post('/',auth,upload.single('image'),createBlog)
 router.get('/:id',getBlog)
 router.put('/:id',updateBlog)
 router.delete('/:id',deleteBlog)

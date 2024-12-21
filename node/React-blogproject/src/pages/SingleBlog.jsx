@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import { blogData } from '../components/Blogs';
+// import { blogData } from '../components/Blogs';
 import Blog from '../components/Blog';
 import axios from 'axios';
 

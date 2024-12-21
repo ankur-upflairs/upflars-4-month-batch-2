@@ -13,7 +13,11 @@ function CreateBlog() {
   async function handleSubmit(e){
     e.preventDefault();
     // console.log(data);
-    let res = await axios.post('http://localhost:3000/blogs',data);
+    let res = await axios.post('http://localhost:3000/blogs',data,{
+      headers:{
+        Authorization : `Bearer ${localStorage.getItem('token')}`
+      }
+    });
     setdata({
       title:"",
       description:"",

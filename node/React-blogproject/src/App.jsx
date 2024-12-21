@@ -8,6 +8,8 @@ import { BrowserRouter ,Routes , Route } from 'react-router'
 import Home from './pages/Home.jsx'
 import CreateBlog from './pages/CreateBlog.jsx'
 import SingleBlog from './pages/SingleBlog.jsx'
+import Login from './pages/loging.jsx'
+import Signup from './pages/Signup.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,6 +21,8 @@ function App() {
     <Route path='/' element={<Home />} />
     <Route path='createblog' element={<CreateBlog />} />
     <Route path='blog/:id' element={<SingleBlog />} />
+    <Route path='login' element={<Login />} />
+    <Route path='Signup' element={<Signup />} />
    </Routes>
    
    </BrowserRouter>    

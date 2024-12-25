@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import Navbar from '../components/Navbar'
 
 function Login() {
     const [data, setData] = useState({
@@ -16,6 +17,7 @@ function Login() {
         let res = await axios.post('http://localhost:3000/users/login', data)
         if(res.data.status=='success'){
             localStorage.setItem('token',res.data.token)
+            localStorage.setItem('role',res.data.role)
         }
         else{
             alert(res.data.message)
@@ -23,7 +25,8 @@ function Login() {
         console.log(res.data)
     }
 
-    return (
+    return (<>
+    <Navbar />
         <form onSubmit={handleSubmit}>
             <label>
                 Email:
@@ -37,6 +40,7 @@ function Login() {
             <br />
             <button type="submit">Login</button>
         </form>
+        </>
     )
 }
 

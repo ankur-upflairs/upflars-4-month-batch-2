@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, {useState} from 'react'
+import Navbar from '../components/Navbar'
 
 function Signup() {
   const [data, setData] = useState({
@@ -18,7 +19,8 @@ function Signup() {
     console.log(res.data)
   }
 
-  return (
+  return (<>
+  <Navbar />
     <form onSubmit={handleSubmit}>
       <label>
         Name:
@@ -37,6 +39,7 @@ function Signup() {
       <br />
       <button type="submit">Signup</button>
     </form>
+    </>
   )
 }
 

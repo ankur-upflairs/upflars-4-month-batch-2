@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 // import { blogData } from '../components/Blogs';
 import Blog from '../components/Blog';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 function SingleBlog() {
     const [blog, setblog] = useState({})
@@ -16,6 +17,7 @@ function SingleBlog() {
     
   return (
     <div>
+      <Navbar />
         blog with id {id}
         <Blog title={blog.title} description={blog.description} image={blog.image} />
     </div>

@@ -1,19 +1,24 @@
 import axios from 'axios';
 import React,{ useState} from 'react'
+import Navbar from '../components/Navbar';
 
 function CreateBlog() {
   const [data, setdata] = useState({
     title:"",
     description:"",
-    image:""
   }  )
+  const [image, setimage] = useState(null)
   function handleChange(e){
     setdata({...data,[e.target.name]:e.target.value})
   }
   async function handleSubmit(e){
     e.preventDefault();
     // console.log(data);
-    let res = await axios.post('http://localhost:3000/blogs',data,{
+    let formdata = new FormData();
+    formdata.append('title',data.title);
+    formdata.append('description',data.description);
+    formdata.append('image',image);
+    let res = await axios.post('http://localhost:3000/blogs',formdata,{
       headers:{
         Authorization : `Bearer ${localStorage.getItem('token')}`
       }
@@ -21,12 +26,13 @@ function CreateBlog() {
     setdata({
       title:"",
       description:"",
-      image:""
     })
+    setimage(null)
     console.log(res.data)
   }
   return (
     <div>
+      <Navbar />
         <form onSubmit={handleSubmit}>
             <label htmlFor="">
             <h3>Title</h3>
@@ -39,9 +45,8 @@ function CreateBlog() {
               value={data.description} 
              onChange={handleChange} />
             <h3>Image</h3>
-            <input type="text" placeholder='Image' name='image'
-            value={data.image} 
-            onChange={handleChange} />
+            <input type="file" placeholder='Image' name='image'            
+            onChange={(event)=>setimage(event.target.files[0])} />
             <button>Submit</button>
         </form>
     </div>

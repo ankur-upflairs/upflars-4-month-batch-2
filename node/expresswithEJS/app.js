@@ -3,13 +3,25 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require('express-session')
+var MongoDBStore = require('connect-mongodb-session')(session);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
+var store = new MongoDBStore({
+  uri: 'mongodb://127.0.0.1:27017/ecommerce',
+  collection: 'mySessions'
+});
 // view engine setup
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false , maxAge: 1000 * 60 * 60 * 24 ,path:'/'},
+  store: store
+}))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

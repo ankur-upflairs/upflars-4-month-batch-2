@@ -4,6 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.session.user);
   res.render('home',{title:"E-commerce Home",products:[
     {id:1,name:"Product 1",price:100},
     {id:2,name:"Product 2",price:200},
@@ -11,7 +12,8 @@ router.get('/', function(req, res, next) {
   ]});
 });
 router.get('/createproduct',(req,res)=>{
-    res.render('products/createproduct');})
+    res.render('products/createproduct');
+  })
 router.post('/createproduct',createProduct);
 router.post('/deleteproduct/:id',deleteProduct);
 module.exports = router;
